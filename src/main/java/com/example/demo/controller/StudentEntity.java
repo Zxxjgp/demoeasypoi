@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
+
 @AllArgsConstructor
 
 @ExcelTarget("studentEntity")
