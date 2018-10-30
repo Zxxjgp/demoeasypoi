@@ -1,7 +1,10 @@
 package com.example.demo.entity;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.logging.Filter;
 
 /**
  * @ProjectName: demo
@@ -35,6 +38,9 @@ public class Test {
         map.put(null,2);
 
         System.out.println(map.get(null));
+        String ss = s +1;
+        System.out.println(ss);
+        System.out.println(3*0.1);
 
     }
 }

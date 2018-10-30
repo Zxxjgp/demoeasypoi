@@ -1,9 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.exception.MyException;
 import net.sf.json.JSONObject;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -38,5 +38,20 @@ public class Index {
         // 返回jsonp格式数据
         System.out.println(jsonpCallback + "(" + resultJSON.toString(1, 1) + ")");
         return jsonpCallback + "(" + resultJSON.toString(1, 1) + ")";
+    }
+
+    @RequestMapping("/home")
+
+    public String home(ModelMap modelMap) {
+        System.out.println(modelMap.get("author"));
+        return modelMap.get("author").toString();
+    }
+
+
+    @RequestMapping("/homes")
+    public String home(@ModelAttribute("author") String author) {
+        System.out.println(author);
+        throw new MyException("101", "Sam 错误");
+        //return author;
     }
 }
